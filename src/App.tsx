@@ -1,4 +1,5 @@
 import wineCategories from "./wine-categories";
+
 export default function App() {
   return (
     <>
@@ -9,7 +10,7 @@ export default function App() {
       </div>
       <ul>
       {wineCategories.wines.map((wine, idx) => {
-        return <li key={idx} className="text-5">{wine.name}</li>;
+        return <li key={idx} className="">{wine.name}</li>;
       })}
       </ul>
       
