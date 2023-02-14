@@ -13,9 +13,12 @@ async function getWineRecommendation({ wineName, maxPrice, minRating, count }: W
         },
         redirect: 'follow',
     };
-    let response = await fetch(`https://api.spoonacular.com/food/wine/recommendation?wine=${wineName}&maxPrice=${maxPrice}&minRating=${minRating}&number=${count}`, options);
-
-    return response.json();
+    try {
+        let response = await fetch(`https://api.spoonacular.com/food/wine/recommendation?wine=${wineName}&maxPrice=${maxPrice}&minRating=${minRating}&number=${count}`, options);
+        return response.json();
+    } catch (e) {
+        console.log(e);
+    }
 
 }
 
