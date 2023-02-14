@@ -1,0 +1,29 @@
+let wineCategories = {
+    wines: [
+        {
+            name: "white wine",
+            types: [
+                { name: "dry white wine" },
+                { name: "mueller thurgau" },
+                { name: "grechetto" },
+                { name: "gewurztraminer" },
+                { name: "chenin blanc" },
+                { name: "white bordeaux" },
+                { name: "semillon" },
+                { name: "riesling" },
+                { name: "sauternes" },
+                { name: "sylvaner" },
+                { name: "lillet blanc" },
+            ],
+        },
+        { name: "red wine" },
+        { name: "rose wine" },
+        { name: "sparkling wine" },
+        { name: "sherry" },
+        { name: "vermouth" },
+        { name: "fruit wine" },
+        { name: "mead" }
+    ]
+}
+
+export default wineCategories;
