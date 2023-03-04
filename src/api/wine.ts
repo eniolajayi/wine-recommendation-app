@@ -41,7 +41,7 @@ async function fetcher(url: string) {
 };
 
 // TODO Set env variable for base url
-const BASE_URL = "https://api.spoonacular.com/";
+const API_BASE_URL = "https://api.spoonacular.com/";
 
 //{{baseUrl}}/food/wine/recommendation?wine=merlot&maxPrice=50&minRating=0.7&number=3
 export const useGetWineRecommendation = ({ wine, maxPrice, minRating, count }: WineRecommendationParams) => {
