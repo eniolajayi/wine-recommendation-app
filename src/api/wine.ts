@@ -31,6 +31,7 @@ export type WineRecommendationError = {
 }
 
 async function fetcher(url: string) {
+    // TODO Remove public api key
     const response = await fetch(url, {
         headers: {
             "x-api-key": import.meta.env.VITE_API_KEY,
