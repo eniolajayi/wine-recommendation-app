@@ -16,9 +16,8 @@ async function getWineRecommendation({ wineName, maxPrice, minRating, count }: W
     try {
         let response = await fetch(`https://api.spoonacular.com/food/wine/recommendation?wine=${wineName}&maxPrice=${maxPrice}&minRating=${minRating}&number=${count}`, options);
         return response.json();
-    } catch (e) {
-        console.log(e);
-    }
+// TODO Set env variable for base url
+const BASE_URL = "https://api.spoonacular.com/";
 
 }
 
