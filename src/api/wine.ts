@@ -1,8 +1,33 @@
-type WineRecommendationParams = {
-    wineName: string;
+import useSWR, {SWRResponse} from "swr";
+
+export type WineRecommendationParams = {
+    wine: string;
     maxPrice: number;
     minRating: number;
     count: number;
+}
+
+export type Wine = {
+    id: number,
+    title: string,
+    description: string,
+    price: string,
+    imageUrl: string,
+    averageRating: number,
+    ratingCount: number,
+    score: number,
+    link: string
+}
+
+export type WineRecommendationData = {
+    recommendedWines: Wine[],
+    totalFound: number,
+}
+
+export type WineRecommendationError = {
+    status: string,
+    code: number,
+    message: string,
 }
 
 async function fetcher(url: string) {
