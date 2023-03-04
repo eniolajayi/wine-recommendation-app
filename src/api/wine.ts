@@ -5,17 +5,15 @@ type WineRecommendationParams = {
     count: number;
 }
 
-async function getWineRecommendation({ wineName, maxPrice, minRating, count }: WineRecommendationParams) {
-    let options: RequestInit = {
-        method: 'GET',
+async function fetcher(url: string) {
+    const response = await fetch(url, {
         headers: {
-            "x-api-key": import.meta.env.API_KEY,
-        },
-        redirect: 'follow',
-    };
-    try {
-        let response = await fetch(`https://api.spoonacular.com/food/wine/recommendation?wine=${wineName}&maxPrice=${maxPrice}&minRating=${minRating}&number=${count}`, options);
-        return response.json();
+            "x-api-key": import.meta.env.VITE_API_KEY,
+        }
+    });
+    return response.json();
+};
+
 // TODO Set env variable for base url
 const BASE_URL = "https://api.spoonacular.com/";
 
