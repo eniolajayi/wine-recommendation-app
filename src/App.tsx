@@ -16,6 +16,7 @@ export default function App() {
     result = data.recommendedWines;
   }
 
+  // TODO Build proper UI and components
   return (
     <>
       <div className="navbar bg-base-100">
