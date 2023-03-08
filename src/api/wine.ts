@@ -1,4 +1,4 @@
-import useSWR, {SWRResponse} from "swr";
+import useSWR, { SWRResponse } from "swr";
 
 export type WineRecommendationParams = {
     wine: string;
@@ -34,13 +34,12 @@ async function fetcher(url: string) {
     // TODO Remove public api key
     const response = await fetch(url, {
         headers: {
-            "x-api-key": import.meta.env.VITE_API_KEY,
+            "x-api-key": process.env.API_KEY ?? "",
         }
     });
     return response.json();
 };
 
-// TODO Set env variable for base url
 const API_BASE_URL = "https://api.spoonacular.com/";
 
 //{{baseUrl}}/food/wine/recommendation?wine=merlot&maxPrice=50&minRating=0.7&number=3
