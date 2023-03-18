@@ -1,5 +1,5 @@
 import { useGetWineRecommendation, Wine, WineRecommendationParams } from "./api/wine";
-import wineCategories from "./wine-categories";
+import wineCategories from "./api/wine-categories";
 
 
 export default function App() {
