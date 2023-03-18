@@ -16,40 +16,42 @@ export default function App() {
   if (data) {
     result = data.recommendedWines;
   }
- 
+
   return (
     <>
       <header>
-        <nav className="navbar bg-slate-900 text-white">
+        <nav className="navbar bg-slate-900 justify-between text-white">
           <a href="/" className="btn btn-ghost normal-case text-xl">
             Winezill
           </a>
-        <a href="#">About</a>
+          <div className="">
+            <a href="#" className="ml-4">About</a>
+            <button>favorites</button>
+          </div>
         </nav>
       </header>
       <main>
         <div className="wrapper">
-          <div className="main__content flex flex-col justify-center bg-orange-100 h-80 ">
-            <h1 className="text-6xl mb-8 mx-auto font-bold ">Pick a category</h1>
-            <p className="text-xl mx-auto">Get excellent wine recommendations based on the category you choose</p>
+          <div className="main__content flex flex-col justify-center items-center bg-orange-100 h-80 ">
+            <h1 className="text-6xl mb-4 font-bold ">Pick a category</h1>
+            <p className="text-xl mb-10">Get excellent wine recommendations based on the category you choose</p>
+            <button className="uppercase font-medium bg-slate-900 w-52 px-1 py-3 text-center rounded-lg text-orange-100">Get Started</button>
           </div>
         </div>
       </main>
 
-      <ul>
+      {/* <ul>
         {wineCategories.wines.map((wine, idx) => {
           return <li key={idx} className="">{wine.name}</li>;
         })}
-      </ul>
-      <div>
-        <div>
+      </ul> */}
+      <div className="pt-16">
+        <div className="grid grid-flow-col auto-cols-max">
           {result.map((wine: Wine) => {
-            return <ProductCard wine={wine}/>
+            return <ProductCard wine={wine} />
           })}
         </div>
       </div>
-
-      <button className="btn btn-primary w-64 rounded-full">Get Started</button>
     </>
   );
 }
