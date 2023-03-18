@@ -3,6 +3,8 @@ import { Wine } from "../api/wine";
 type ProductCardProps = {
     wine: Wine,
 }
+
+// TODO Decouple wine from product card
 export default function ProductCard({wine}: ProductCardProps){
     return <div key={wine.id} className="card w-96 bg-base-100 shadow-xl">
     <figure>
