@@ -1,5 +1,6 @@
 import { useGetWineRecommendation, Wine, WineRecommendationParams } from "./api/wine";
 import wineCategories from "./api/wine-categories";
+import ProductCard from "./components/ProductCard";
 
 
 export default function App() {
@@ -43,22 +44,7 @@ export default function App() {
       <div>
         <div>
           {result.map((wine: Wine) => {
-            return <div key={wine.id} className="card w-96 bg-base-100 shadow-xl">
-              <figure>
-                <img src={wine.imageUrl} alt="" />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">{wine.title}</h2>
-                <p>{wine.description}</p>
-                <div>
-                  <span>{wine.averageRating}</span><span>{wine.ratingCount}</span>
-                </div>
-                <div>{wine.price}</div>
-                <div className="card-actions justify-end">
-                  <a className="btn btn-primary" href={wine.link}>Get</a>
-                </div>
-              </div>
-            </div>
+            return <ProductCard wine={wine}/>
           })}
         </div>
       </div>
