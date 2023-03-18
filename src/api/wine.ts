@@ -34,7 +34,7 @@ async function fetcher(url: string) {
     // TODO Remove public api key
     const response = await fetch(url, {
         headers: {
-            "x-api-key": process.env.API_KEY ?? "",
+            "x-api-key": import.meta.env.VITE_API_KEY ?? "",
         }
     });
     return response.json();
