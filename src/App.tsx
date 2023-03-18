@@ -15,15 +15,26 @@ export default function App() {
   if (data) {
     result = data.recommendedWines;
   }
-
-  // TODO Build proper UI and components
+ 
   return (
     <>
-      <div className="navbar bg-base-100">
-        <a href="/" className="btn btn-ghost normal-case text-xl">
-          Winezill
-        </a>
-      </div>
+      <header>
+        <nav className="navbar bg-slate-900 text-white">
+          <a href="/" className="btn btn-ghost normal-case text-xl">
+            Winezill
+          </a>
+        <a href="#">About</a>
+        </nav>
+      </header>
+      <main>
+        <div className="wrapper">
+          <div className="main__content flex flex-col justify-center bg-orange-100 h-80 ">
+            <h1 className="text-6xl mb-8 mx-auto font-bold ">Pick a category</h1>
+            <p className="text-xl mx-auto">Get excellent wine recommendations based on the category you choose</p>
+          </div>
+        </div>
+      </main>
+
       <ul>
         {wineCategories.wines.map((wine, idx) => {
           return <li key={idx} className="">{wine.name}</li>;
@@ -32,17 +43,21 @@ export default function App() {
       <div>
         <div>
           {result.map((wine: Wine) => {
-            return <div key={wine.id}>
-              <img src={wine.imageUrl} alt="" />
-              <h2>{wine.title}</h2>
-              <p>{wine.description}</p>
-              <div>
-                <span>{wine.averageRating}</span><span>{wine.ratingCount}</span>
+            return <div key={wine.id} className="card w-96 bg-base-100 shadow-xl">
+              <figure>
+                <img src={wine.imageUrl} alt="" />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">{wine.title}</h2>
+                <p>{wine.description}</p>
+                <div>
+                  <span>{wine.averageRating}</span><span>{wine.ratingCount}</span>
+                </div>
+                <div>{wine.price}</div>
+                <div className="card-actions justify-end">
+                  <a className="btn btn-primary" href={wine.link}>Get</a>
+                </div>
               </div>
-              <div>{wine.price}</div>
-
-
-              <a href={wine.link}>Get</a>
             </div>
           })}
         </div>
