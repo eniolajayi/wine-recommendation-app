@@ -8,24 +8,17 @@ type ProductCardProps = {
 // TODO Decouple wine from product card
 export default function ProductCard({ wine }: ProductCardProps) {
 
-    const maxTextLength = 300;
-    const truncatedText = getTruncatedText(wine.description, maxTextLength);
-
 
     return <div key={wine.id} className="max-w-sm bg-slate-100 px-3 py-4 m-4 rounded-lg">
-        <figure className="w-full h-52 overflow-y-hidden">
+        <figure className="w-full h-52 mb-6 overflow-y-hidden">
             <img className="mx-auto" src={wine.imageUrl} alt="" />
         </figure>
         <div className="mt-6 px-4">
-            <div className="flex items-center justify-between">
+            <div className="flex mb-4 items-center justify-between">
                 <h2 className="text-lg">{wine.title}</h2>
                 <div className="bg-orange-100 text-lg font-mono px-2 py-1 rounded-lg">{wine.price}</div>
             </div>
-            <div className="my-6 flex-1">
-                <p className="text-sm">{truncatedText.length <= 1 ? "No description" : truncatedText}
-                    {wine.description.length > maxTextLength && <a href={wine.link}>Read More</a>}</p>
-            </div>
-            <div>
+            <div className="mb-4">
                 <span>{wine.averageRating}</span><span>{wine.ratingCount}</span>
             </div>
 
